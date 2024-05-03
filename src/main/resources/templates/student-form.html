@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+
+    <!-- Include Bootstrap or other CSS libraries if needed -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h3>Student Form</h3>
+        <hr>
+
+        <a th:href="@{/students}" class="btn btn-primary btn-sm mb-3">Back to Student List</a>
+
+        <p class="h4 mb-4">Save Student</p>
+
+        <form th:action="@{/students/save}" th:object="${theStudent}" method="POST" enctype="multipart/form-data">
+            <input type="text" th:field="*{name}" class="form-control mb-4 col-4" placeholder="Name">
+
+            <!-- File input for profile picture -->
+            <input type="file" name="profilePicture" class="form-control mb-4 col-4">
+
+            <button type="submit" class="btn btn-info col-2">Save</button>
+        </form>
+    </div>
+</body>
+
+</html>
